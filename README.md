@@ -4,6 +4,7 @@ API docs: [https://documenter.getpostman.com/view/27112600/](https://documenter.
 - Chắc chắn rằng bạn đã cài mqtt broker
 - Cần đảm bảo phía software và hardware đã kết nối mqtt server thành công (IP address, port, username, password)
 - Cần đảm bảo phía software và hardware thực hiện sub và pub lên các topic hợp lệ
+
 Để chạy ứng dụng cần:
 - Vào thư mục software và run project bằng lệnh
   ```
