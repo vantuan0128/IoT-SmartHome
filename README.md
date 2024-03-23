@@ -1,4 +1,4 @@
-API docs: https://documenter.getpostman.com/view/27112600/
+API docs: [https://documenter.getpostman.com/view/27112600/](https://documenter.getpostman.com/view/27112600/2sA35Baj5U)
 Để đảm bảo ứng dụng hoạt động một cách đúng đắn:
 - Chắc chắn rằng bạn đã cài mqtt broker
 - Cần đảm bảo phía software và hardware đã kết nối mqtt server thành công (IP address, port, username, password)
