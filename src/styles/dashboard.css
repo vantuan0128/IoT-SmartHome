@@ -1,0 +1,17 @@
+.dashboard {
+    position: relative;
+    height: 750px;
+}
+
+.row1 {
+    width: calc(100% - 50px);
+    margin: 0 25px;
+}
+
+.row2 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+}

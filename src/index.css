@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    width: 100%;
+    font-family: 'Unbounded', sans-serif;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #555;
+}

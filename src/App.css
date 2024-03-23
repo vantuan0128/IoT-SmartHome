@@ -1,0 +1,9 @@
+.App {
+    padding-top: -20px;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+hr {
+    background-color: #ffffff;
+    height: 1px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu đồ dữ liệu</title>
+    <!-- Thêm thư viện Chart.js từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Nơi để vẽ biểu đồ -->
+    <canvas id="myChart"></canvas>
+
+    <script>
+        // Đoạn mã JavaScript để vẽ biểu đồ sẽ được thêm vào đây
+        document.addEventListener('DOMContentLoaded', function () {
+            // Dữ liệu mẫu về nhiệt độ, độ ẩm và ánh sáng
+            var temperatureData = [20, 22, 25, 28, 30];
+            var humidityData = [60, 55, 50, 45, 40];
+            var lightData = [500, 800, 1000, 1200, 1500];
+        
+            // Lấy thẻ canvas và khởi tạo biểu đồ
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6'],
+                    datasets: [{
+                        label: 'Nhiệt độ',
+                        data: temperatureData,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Độ ẩm',
+                        data: humidityData,
+                        borderColor: 'blue',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Ánh sáng',
+                        data: lightData,
+                        borderColor: 'green',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Ngày'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Giá trị'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>

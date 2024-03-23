@@ -1,0 +1,107 @@
+.container__profile{
+    position: relative;
+    height: 1800px;
+    color: white;
+    margin-top: 30px;
+}
+
+.container__greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.container__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 80px;
+}
+
+.about-me {
+    width: 30%;
+    text-align: left;
+    line-height: 2;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.avatar img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid #eeff00;
+    border-style: outset;
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-1.2rem);
+    }
+
+    50% {
+        transform: translateX(-2.4rem);
+    }
+
+    75% {
+        transform: translateX(-1.2rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.detail-info p {
+    font-weight: 100;
+}
+
+.container__contacts {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__icons {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.icon2 {
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+.icon2:hover {
+    transform: scale(1.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container__achievements {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-achievements p{
+    font-weight: 100;
+}
+
+.detail-achievements h3 {
+    font-weight: 200;
+}
+
+
+
