@@ -17,6 +17,9 @@ To run the application:
   ```
   node server.js
   ```
+  <p align="center">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/448115c3-418e-4601-8d42-c04c124fb795" alt="MQTT Broker Startup Image">
+</p>
 - Start the MQTT Broker by executing the command:
   ```
   Windows + R --> cmd
