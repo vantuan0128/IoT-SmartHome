@@ -1,33 +1,60 @@
 API docs: [https://documenter.getpostman.com/view/27112600/](https://documenter.getpostman.com/view/27112600/2sA35Baj5U)
 
-Ứng dụng thực hiện bằng ReactJs + NodeJs (ExpressJs), MySQL Workbench 8.0 CE, MQTT Broker, Arduino IDE
+The application is built using ReactJS for the frontend, Node.js with Express.js for the backend, MySQL Workbench 8.0 CE for the database, MQTT Broker for message communication, and Arduino IDE for hardware interaction.
 
-Để đảm bảo ứng dụng hoạt động một cách đúng đắn:
-- Chắc chắn rằng bạn đã cài mqtt broker
-- Cần đảm bảo phía software và hardware đã kết nối mqtt server thành công (IP address, port, username, password)
-- Cần đảm bảo phía software và hardware thực hiện sub và pub lên các topic hợp lệ
+To ensure that the application operates correctly:
+- Make sure you have installed the MQTT broker.
+- Ensure that both the software and hardware are successfully connected to the MQTT server (IP address, port, username, password).
+- Ensure that both the software and hardware subscribe and publish to valid topics.
+- You also need to install some libraries to be able to run, such as mysql2, mqtt, express, chartjs, axios... in order to start the application with the command 'npm i'
 
-- ![image](https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/daf1c17c-9fc1-449a-8a58-fdc5587254ce)
-
-
-Để chạy ứng dụng cần:
-- Vào thư mục software và run project bằng lệnh
+To run the application:
+- Navigate to the software directory and run the project using the command:
   ```
   npm start
   ```
-- Khởi động server bằng cách chạy file server.js
+- Start the server by running the server.js file:
   ```
   node server.js
   ```
-- Khởi động MQTT Broker bằng lệnh
+- Start the MQTT Broker by executing the command:
   ```
   Windows + R --> cmd
   ```
-  Vào đúng thư mục chứa mosquitto đã cài đặt:
+  Navigate to the directory where Mosquitto is installed.
   ```
   cd C:\Program Files\mosquitto
   ```
-  Sau đó chạy lệnh
+  Run the following commands:
   ```
   "net start mosquitto" hoặc ".\mosquitto.exe -v -c mosquitto.conf"
   ```
+
+A visual representation of a successful MQTT broker startup
+<p align="center">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/d78f932c-2733-4e7a-be9f-609b748c6104" alt="MQTT Broker Startup Image">
+</p>
+
+When the application runs successfully, it will include the following interfaces
+
+DashBoard page:
+
+<p align="center">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/5da6784a-dcac-4b90-aeb6-9bd58e8920c4" alt="Application Image">
+</p>
+
+Data Sensor page:
+
+<p align="center">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/b53fcdb2-cf40-410f-8974-a85bc4cf2ff8" alt="Data sensor Image">
+</p>
+
+Action history page:
+
+<p align="center">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/7cb5e3d8-0212-4cb4-8feb-ea55dffb6b89" alt="MQTT Broker Startup Image">
+</p>
+
+
+
+
