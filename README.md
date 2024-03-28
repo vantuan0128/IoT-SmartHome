@@ -7,6 +7,9 @@ API docs: [https://documenter.getpostman.com/view/27112600/](https://documenter.
 - Cần đảm bảo phía software và hardware đã kết nối mqtt server thành công (IP address, port, username, password)
 - Cần đảm bảo phía software và hardware thực hiện sub và pub lên các topic hợp lệ
 
+- ![image](https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/daf1c17c-9fc1-449a-8a58-fdc5587254ce)
+
+
 Để chạy ứng dụng cần:
 - Vào thư mục software và run project bằng lệnh
   ```
