@@ -1,4 +1,4 @@
-API docs: [https://documenter.getpostman.com/view/27112600/](https://documenter.getpostman.com/view/27112600/2sA35Baj5U)
+API docs: https://documenter.getpostman.com/view/27112600/2sA35Baj5U
 
 The application is built using ReactJS for the frontend, Node.js with Express.js for the backend, MySQL Workbench 8.0 CE for the database, MQTT Broker for message communication, and Arduino IDE for hardware interaction.
 
@@ -21,17 +21,23 @@ To run the application:
   <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/448115c3-418e-4601-8d42-c04c124fb795" alt="MQTT Broker Startup Image">
 </p>
 - Start the MQTT Broker by executing the command:
+
   ```
   Windows + R --> cmd
   ```
+
   Navigate to the directory where Mosquitto is installed.
+  
   ```
   cd C:\Program Files\mosquitto
   ```
+
   Run the following commands:
+  
   ```
   "net start mosquitto" hoặc ".\mosquitto.exe -v -c mosquitto.conf"
   ```
+
 
 A visual representation of a successful MQTT broker startup
 <p align="center">
