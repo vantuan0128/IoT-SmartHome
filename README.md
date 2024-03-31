@@ -1,4 +1,4 @@
-API docs: [https://documenter.getpostman.com/view/27112600/2sA35Baj5U](https://documenter.getpostman.com/view/27112600/2sA35Baj5U)
+API docs: https://documenter.getpostman.com/view/27112600/2sA35Baj5U
 
 The application is built using ReactJS for the frontend, Node.js with Express.js for the backend, MySQL Workbench 8.0 CE for the database, MQTT Broker for message communication, and Arduino IDE for hardware interaction.
 
