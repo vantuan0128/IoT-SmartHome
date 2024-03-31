@@ -55,12 +55,13 @@ mqttClient.on('message', (topic, message) => {
         console.log('Brightness:', data.brightness);
         console.log('Temperature:', data.temperature);
         console.log('Humidity:', data.humidity);
-        // res.json(data);
 
         const { temperature, humidity, brightness } = data;
 
-        if (!temperature || !humidity || !brightness) {
-            // return res.status(400).json({ error: 'Missing necessary information' });
+        if (!temperature || !humidity || !brightness || 
+            temperature < 0 || temperature > 100 || 
+            humidity < 0 || humidity > 100 || 
+            brightness < 0 || brightness > 4095) {
             return;
         }
 
@@ -70,12 +71,9 @@ mqttClient.on('message', (topic, message) => {
         db.query(sqlInsert, valuesInsert, (insertErr, insertResult) => {
             if (insertErr) {
                 console.error('Error executing insert query:', insertErr);
-                // return res.status(500).json({ error: 'Internal Server Error' });
             }
             console.log('New record added to the database');
-            // res.status(201).json({ message: 'Record added to the database' });
         });
-        // isResponseSent = true;
     }
 });
 

@@ -3,21 +3,24 @@ const router = express.Router();
 const mqttClient = require('./mqttConnection');
 const db = require('./connection');
 
-// router.get('/api/sensor-data', (req, res) => {
-//     let isResponseSent = false;
+router.get('/api/getLatestData', (req, res) => {
+    let sql = 'SELECT * FROM datasensors ORDER BY id DESC LIMIT 1';
 
-//     mqttClient.on('message', (topic, message) => {
-//         if (topic === 'sensor_data' && !isResponseSent) {
-//             const data = JSON.parse(message.toString());
-//             console.log('Received sensor data:');
-//             console.log('Brightness:', data.brightness);
-//             console.log('Temperature:', data.temperature);
-//             console.log('Humidity:', data.humidity);
-//             res.json(data);
-//             isResponseSent = true;
-//         }
-//     });
-// });
+    db.query(sql, (err, result) => {
+        if (err) {
+            console.error('Error executing select query:', err);
+            res.status(500).send('Internal Server Error');
+        } else {
+            if (result.length > 0) {
+                console.log('Latest data retrieved:', result[0]);
+                res.json(result[0]);
+            } else {
+                console.log('No data found in datasensors table');
+                res.status(404).send('Not Found');
+            }
+        }
+    });
+});
 
 router.get('/api/getAllData', (req, res) => {
     const page = parseInt(req.query.page) || 1;
@@ -114,26 +117,6 @@ router.get('/api/getAllHistory', (req, res) => {
         }
     });
 });
-
-// router.post('/api/addDataSensor', (req, res) => {
-//     const { temperature, humidity, brightness, createdAt } = req.body;
-
-//     if (!temperature || !humidity || !brightness || !createdAt) {
-//         return res.status(400).json({ error: 'Missing necessary information' });
-//     }
-
-//     const sqlInsert = 'INSERT INTO datasensors (temperature, humidity, brightness, createdAt) VALUES (?, ?, ?, NOW())';
-//     const valuesInsert = [temperature, humidity, brightness];
-
-//     db.query(sqlInsert, valuesInsert, (insertErr, insertResult) => {
-//         if (insertErr) {
-//             console.error('Error executing insert query:', insertErr);
-//             return res.status(500).json({ error: 'Internal Server Error' });
-//         }
-//         console.log('New record added to the database');
-//         res.status(201).json({ message: 'Record added to the database' });
-//     });
-// });
 
 router.post('/api/devices', async (req, res) => {
     const { device, action } = req.body;
