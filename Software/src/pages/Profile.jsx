@@ -34,7 +34,7 @@ const Profile = () => {
                     <h4>Address</h4>
                     <p>Khuong Dinh, Thanh Xuan, Ha Noi</p>
                     <h4>Phone number</h4>
-                    <p>0358819909</p>
+                    <p>0312312331</p>
                 </div>
             </div>
             <div className="container__contacts">

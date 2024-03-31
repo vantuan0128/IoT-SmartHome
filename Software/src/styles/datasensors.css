@@ -105,3 +105,13 @@
     margin: 0 5px;
     color: #666;
 }
+
+.page-size select,
+.page-size input,
+.page-size button{
+    margin-left: 5px;
+    height: 40px;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}

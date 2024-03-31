@@ -1,4 +1,5 @@
 const mqtt = require('mqtt');
+const db = require('./connection');
 
 const mqttOptions = {
     host: '192.168.2.25',
@@ -45,6 +46,37 @@ mqttClient.on('connect', () => {
 
 mqttClient.on('error', (err) => {
     console.error('MQTT error: ', err);
+});
+
+mqttClient.on('message', (topic, message) => {
+    if (topic === 'sensor_data') {
+        const data = JSON.parse(message.toString());
+        console.log('Received sensor data:');
+        console.log('Brightness:', data.brightness);
+        console.log('Temperature:', data.temperature);
+        console.log('Humidity:', data.humidity);
+        // res.json(data);
+
+        const { temperature, humidity, brightness } = data;
+
+        if (!temperature || !humidity || !brightness) {
+            // return res.status(400).json({ error: 'Missing necessary information' });
+            return;
+        }
+
+        const sqlInsert = 'INSERT INTO datasensors (temperature, humidity, brightness, createdAt) VALUES (?, ?, ?, NOW())';
+        const valuesInsert = [temperature, humidity, brightness];
+    
+        db.query(sqlInsert, valuesInsert, (insertErr, insertResult) => {
+            if (insertErr) {
+                console.error('Error executing insert query:', insertErr);
+                // return res.status(500).json({ error: 'Internal Server Error' });
+            }
+            console.log('New record added to the database');
+            // res.status(201).json({ message: 'Record added to the database' });
+        });
+        // isResponseSent = true;
+    }
 });
 
 module.exports = mqttClient;

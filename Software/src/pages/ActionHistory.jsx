@@ -16,16 +16,16 @@ const ActionHistory = () => {
 
     const [selectedField, setSelectedField] = useState('all');
     const [searchField, setSearchField] = useState('');
-    const [totalPages, setTotalPages] = useState(1);
 
-    const itemsPerPage = 10;
+    const [pageSize, setPageSize] = useState(10);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3002/api/getAllHistory?page=${currentPage}&sortBy=${sortBy}&sortDirection=${sortDirection}&field=${selectedField}&value=${searchField}`);
+                const response = await axios.get(`http://localhost:3002/api/getAllHistory?page=${currentPage}&pageSize=${pageSize}&sortBy=${sortBy}&sortDirection=${sortDirection}&field=${selectedField}&value=${searchField}`);
                 const { totalCount, data } = response.data;
-                const totalPages = Math.ceil(totalCount / itemsPerPage);
+                const totalPages = Math.ceil(totalCount / pageSize);
                 setTotalPages(totalPages);
                 setActionData(data);
             } catch (error) {
@@ -33,7 +33,7 @@ const ActionHistory = () => {
             }
         };
         fetchData();
-    }, [currentPage, sortBy, sortDirection, selectedField, searchField]);
+    }, [currentPage, sortBy, sortDirection, selectedField, searchField, pageSize]);
 
     const handleSort = async (field) => {
         try {
@@ -71,6 +71,11 @@ const ActionHistory = () => {
         setCurrentPage(1);
     }
 
+    const handleChangePageSize = (e) => {
+        setCurrentPage(1);
+        setPageSize(parseInt(e.target.value));
+    }
+
     const formatDate = (isoDateString) => {
         const date = new Date(isoDateString);
         const year = date.getFullYear();
@@ -92,6 +97,15 @@ const ActionHistory = () => {
                     <option value="time">Time</option>
                 </select>
                 <input type="text" value={searchField} onChange={handleChangeSearch} />
+
+                <div className="page-size">
+                    <select value={pageSize} onChange={handleChangePageSize}>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
             </div>
             <table className='data-table'>
                 <thead>

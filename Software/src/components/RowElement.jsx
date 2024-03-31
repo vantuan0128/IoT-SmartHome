@@ -5,31 +5,7 @@ import { WiHumidity } from 'react-icons/wi';
 import '../styles/style.css';
 import axios from 'axios';
 
-const RowElement = ({data}) => {
-
-    useEffect(() => {
-        // const interval = setInterval(() => {
-        //     updateData();
-        // }, 5000);
-
-        const updateData = async () => {
-            try {
-                await axios.post('http://localhost:3002/api/addDataSensor', {
-                    temperature: data.temperature,
-                    humidity: data.humidity,
-                    brightness: data.brightness,
-                    createdAt: Date.now(),
-                });
-                console.log('Data sent to server successfully');
-            } catch (error) {
-                console.error('Error sending data to server:', error);
-            }
-        };
-
-        updateData();
-        // return () => clearInterval(interval);
-
-    }, [data]);
+const RowElement = ({ data }) => {
 
     const getTemperatureColor = () => {
         if (data.temperature < 20) {
@@ -65,7 +41,6 @@ const RowElement = ({data}) => {
         else {
             return 'light';
         }
-
     }
 
     return (
@@ -104,4 +79,4 @@ const RowElement = ({data}) => {
     );
 }
 
-export default RowElement
+export default RowElement;

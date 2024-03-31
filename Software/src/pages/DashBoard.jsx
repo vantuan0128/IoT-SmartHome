@@ -16,8 +16,9 @@ const DashBoard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/api/sensor-data');
-                setSensorData(response.data);
+                const response = await axios.get('http://localhost:3002/api/getAllData?page=1&pageSize=10&sortBy=id&sortDirection=desc');
+                const { totalCount, data } = response.data;
+                setSensorData(data[0]);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

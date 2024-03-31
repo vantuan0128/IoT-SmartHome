@@ -75,10 +75,10 @@ const GraphElement = ({ data }) => {
   useEffect(() => {
     const updateChartData = () => {
       setChartData((prevChartData) => {
-        const currentTime = new Date();
-        const hour = currentTime.getHours().toString().padStart(2, '0');
-        const minute = currentTime.getMinutes().toString().padStart(2, '0');
-        const second = currentTime.getSeconds().toString().padStart(2, '0');
+        const time = new Date(data.createdAt);
+        const hour = time.getHours().toString().padStart(2, '0');
+        const minute = time.getMinutes().toString().padStart(2, '0');
+        const second = time.getSeconds().toString().padStart(2, '0');
 
         const newLabels = [...prevChartData.labels.slice(1), `${hour}:${minute}:${second}`];
         const newTemperatureData = [...prevChartData.datasets[0].data.slice(1), data.temperature];

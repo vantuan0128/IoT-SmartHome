@@ -3,21 +3,21 @@ const router = express.Router();
 const mqttClient = require('./mqttConnection');
 const db = require('./connection');
 
-router.get('/api/sensor-data', (req, res) => {
-    let isResponseSent = false;
+// router.get('/api/sensor-data', (req, res) => {
+//     let isResponseSent = false;
 
-    mqttClient.on('message', (topic, message) => {
-        if (topic === 'sensor_data' && !isResponseSent) {
-            const data = JSON.parse(message.toString());
-            console.log('Received sensor data:');
-            console.log('Brightness:', data.brightness);
-            console.log('Temperature:', data.temperature);
-            console.log('Humidity:', data.humidity);
-            res.json(data);
-            isResponseSent = true;
-        }
-    });
-});
+//     mqttClient.on('message', (topic, message) => {
+//         if (topic === 'sensor_data' && !isResponseSent) {
+//             const data = JSON.parse(message.toString());
+//             console.log('Received sensor data:');
+//             console.log('Brightness:', data.brightness);
+//             console.log('Temperature:', data.temperature);
+//             console.log('Humidity:', data.humidity);
+//             res.json(data);
+//             isResponseSent = true;
+//         }
+//     });
+// });
 
 router.get('/api/getAllData', (req, res) => {
     const page = parseInt(req.query.page) || 1;
@@ -25,8 +25,8 @@ router.get('/api/getAllData', (req, res) => {
     const sortDirection = req.query.sortDirection || 'asc';
     const selectedField = req.query.field || 'all';
     const searchField = req.query.value || '';
-    const itemsPerPage = 10;
-    const startIndex = (page - 1) * itemsPerPage;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+    const startIndex = (page - 1) * pageSize;
 
     let ok = false;
 
@@ -34,7 +34,7 @@ router.get('/api/getAllData', (req, res) => {
     let countSql = `SELECT COUNT(*) AS totalCount FROM datasensors`;
 
     if (!searchField) {
-        sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${itemsPerPage} OFFSET ${startIndex}`;
+        sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${pageSize} OFFSET ${startIndex}`;
         ok = true;
     } else {
         if (selectedField === 'all') {
@@ -46,7 +46,7 @@ router.get('/api/getAllData', (req, res) => {
         }
     }
 
-    if (!ok) sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${itemsPerPage} OFFSET ${startIndex}`;
+    if (!ok) sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${pageSize} OFFSET ${startIndex}`;
 
     db.query(sql, (err, result) => {
         if (err) {
@@ -73,8 +73,8 @@ router.get('/api/getAllHistory', (req, res) => {
     const sortDirection = req.query.sortDirection || 'asc';
     const selectedField = req.query.field || 'all';
     const searchField = req.query.value || '';
-    const itemsPerPage = 10;
-    const startIndex = (page - 1) * itemsPerPage;
+    const pageSize = parseInt(req.query.pageSize) || 10;
+    const startIndex = (page - 1) * pageSize;
 
     let ok = false;
 
@@ -82,7 +82,7 @@ router.get('/api/getAllHistory', (req, res) => {
     let countSql = `SELECT COUNT(*) AS totalCount FROM history`;
 
     if (!searchField) {
-        sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${itemsPerPage} OFFSET ${startIndex}`;
+        sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${pageSize} OFFSET ${startIndex}`;
         ok = true;
     } else {
         if (selectedField === 'all') {
@@ -94,7 +94,7 @@ router.get('/api/getAllHistory', (req, res) => {
         }
     }
 
-    if (!ok) sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${itemsPerPage} OFFSET ${startIndex}`;
+    if (!ok) sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${pageSize} OFFSET ${startIndex}`;
 
     db.query(sql, (err, result) => {
         if (err) {
@@ -115,25 +115,25 @@ router.get('/api/getAllHistory', (req, res) => {
     });
 });
 
-router.post('/api/addDataSensor', (req, res) => {
-    const { temperature, humidity, brightness, createdAt } = req.body;
+// router.post('/api/addDataSensor', (req, res) => {
+//     const { temperature, humidity, brightness, createdAt } = req.body;
 
-    if (!temperature || !humidity || !brightness || !createdAt) {
-        return res.status(400).json({ error: 'Missing necessary information' });
-    }
+//     if (!temperature || !humidity || !brightness || !createdAt) {
+//         return res.status(400).json({ error: 'Missing necessary information' });
+//     }
 
-    const sqlInsert = 'INSERT INTO datasensors (temperature, humidity, brightness, createdAt) VALUES (?, ?, ?, NOW())';
-    const valuesInsert = [temperature, humidity, brightness];
+//     const sqlInsert = 'INSERT INTO datasensors (temperature, humidity, brightness, createdAt) VALUES (?, ?, ?, NOW())';
+//     const valuesInsert = [temperature, humidity, brightness];
 
-    db.query(sqlInsert, valuesInsert, (insertErr, insertResult) => {
-        if (insertErr) {
-            console.error('Error executing insert query:', insertErr);
-            return res.status(500).json({ error: 'Internal Server Error' });
-        }
-        console.log('New record added to the database');
-        res.status(201).json({ message: 'Record added to the database' });
-    });
-});
+//     db.query(sqlInsert, valuesInsert, (insertErr, insertResult) => {
+//         if (insertErr) {
+//             console.error('Error executing insert query:', insertErr);
+//             return res.status(500).json({ error: 'Internal Server Error' });
+//         }
+//         console.log('New record added to the database');
+//         res.status(201).json({ message: 'Record added to the database' });
+//     });
+// });
 
 router.post('/api/devices', async (req, res) => {
     const { device, action } = req.body;
