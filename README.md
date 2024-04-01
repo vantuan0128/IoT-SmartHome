@@ -72,8 +72,15 @@ A visual representation of a successful MQTT broker startup
 ## Action history page:
 
 <p align="center">
-  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/7cb5e3d8-0212-4cb4-8feb-ea55dffb6b89" alt="MQTT Broker Startup Image">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/7cb5e3d8-0212-4cb4-8feb-ea55dffb6b89" alt="Action history Image">
 </p>
+
+## Profile page:
+
+<p align="center">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/2419dd80-24f8-4f9b-a201-858b71aaf17d" alt="Profile Image">
+</p>
+
 
 
 
