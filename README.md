@@ -11,6 +11,12 @@ To ensure that the application operates correctly:
 - Ensure that both the software and hardware subscribe and publish to valid topics.
 - You also need to install some libraries to be able to run, such as mysql2, mqtt, express, chartjs, axios... in order to start the application with the command 'npm i'
 
+# Configure connection
+
+  <p align="center">
+    <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/86716b8d-d863-46b5-9ff8-350a26c6d14b" alt="Configuration">
+</p>
+
 # To run the application:
 - Navigate to the software directory and run the project using the command:
   
@@ -23,10 +29,6 @@ To ensure that the application operates correctly:
   ```
   node server.js
   ```
-  
-  <p align="center">
-  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/448115c3-418e-4601-8d42-c04c124fb795" alt="MQTT Broker Startup Image">
-</p>
 
 - Start the MQTT Broker by executing the command:
 
