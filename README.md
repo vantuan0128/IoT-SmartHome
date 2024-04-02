@@ -17,6 +17,26 @@ To ensure that the application operates correctly:
     <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/86716b8d-d863-46b5-9ff8-350a26c6d14b" alt="Configuration">
 </p>
 
+# Configure Arduino
+
+- Before you start, make sure to install some necessary libraries such as <WiFi.h>, <PubSubClient.h>, <Adafruit_Sensor.h>, <DHT.h>, <ArduinoJson.h> in Library Manager to run
+
+  <p align="center">
+    <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/c1bd86d8-7472-4562-b8a6-635255938538" alt="Configuration">
+</p>
+
+- You need to declare mqtt broker information like port, your username and password used to access to mqtt broker, your WiFi name, password and IP address
+
+  <p align="center">
+    <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/7f86d5c9-c91a-4ef0-b361-2b55aa039e9b" alt="Configuration">
+</p>
+
+  <p align="center">
+    <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/56066f33-43ee-4e46-962b-5c6f01cc1f59" alt="Configuration">
+</p>
+
+**Note: The topics you declare in Arduino and in server side must be the same. If one topic is published on one side, the other side will be subscribed and vice versa**
+
 # To run the application:
 - Navigate to the software directory and run the project using the command:
   
