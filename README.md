@@ -35,7 +35,7 @@ To ensure that the application operates correctly:
     <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/56066f33-43ee-4e46-962b-5c6f01cc1f59" alt="Configuration">
 </p>
 
-**Note: The topics you declare in Arduino and in server side must be the same. If one topic is published on one side, the other side will be subscribed and vice versa**
+**Note !!!: The topics you declare in Arduino and in server side must be the same. If one topic is published on one side, the other side will be subscribed and vice versa**
 
 # To run the application:
 - Navigate to the software directory and run the project using the command:
