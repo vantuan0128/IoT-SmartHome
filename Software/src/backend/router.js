@@ -33,8 +33,16 @@ router.get('/api/getAllData', (req, res) => {
 
     let ok = false;
 
-    let sql = `SELECT * FROM datasensors`;
+    let sql = ``;
     let countSql = `SELECT COUNT(*) AS totalCount FROM datasensors`;
+
+    if (selectedField === 'all') {
+        sql = `SELECT * FROM datasensors`;
+    } else if (selectedField === 'createdAt') {
+        sql = `SELECT id, createdAt FROM datasensors`;
+    } else {
+        sql = `SELECT id, ${selectedField}, createdAt FROM datasensors`;
+    }
 
     if (!searchField) {
         sql += ` ORDER BY ${sortBy} ${sortDirection} LIMIT ${pageSize} OFFSET ${startIndex}`;
