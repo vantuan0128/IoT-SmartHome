@@ -38,7 +38,7 @@ router.get('/api/getAllData', (req, res) => {
 
     if (selectedField === 'all') {
         sql = `SELECT * FROM datasensors`;
-    } else if (selectedField === 'createdAt') {
+    } else if (selectedField === 'createdAt' || selectedField === 'id') {
         sql = `SELECT id, createdAt FROM datasensors`;
     } else {
         sql = `SELECT id, ${selectedField}, createdAt FROM datasensors`;

@@ -92,6 +92,7 @@ const ActionHistory = () => {
             <div className="filter">
                 <select value={selectedField} onChange={handleChangeSelect}>
                     <option value="all">All</option>
+                    <option value="id">ID</option>
                     <option value="device_id">Device_Id</option>
                     <option value="action">Action</option>
                     <option value="time">Time</option>

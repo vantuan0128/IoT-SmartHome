@@ -108,6 +108,7 @@ const DataSensors = () => {
             <div className="filter">
                 <select value={selectedField} onChange={handleChangeSelect}>
                     <option value="all">All</option>
+                    <option value="id">ID</option>
                     <option value="temperature">Temperature</option>
                     <option value="humidity">Humidity</option>
                     <option value="brightness">Brightness</option>
@@ -171,7 +172,7 @@ const DataSensors = () => {
                                 </th>
                             </>
                         )}
-                        {(selectedField !== 'all' && selectedField !== 'createdAt') && (
+                        {(selectedField !== 'all' && selectedField !== 'createdAt' && selectedField !== 'id') && (
                             <>
                                 <th onClick={() => handleSort(selectedField)} style={getHeaderStyle(selectedField)}>
                                     {selectedField.charAt(0).toUpperCase() + selectedField.slice(1)}
@@ -191,7 +192,7 @@ const DataSensors = () => {
                                 </th>
                             </>
                         )}
-                        {selectedField === 'createdAt' && (
+                        {(selectedField === 'createdAt' || selectedField === 'id') && (
                             <>
                                 <th onClick={() => handleSort('createdAt')} style={getHeaderStyle('createdAt')}>
                                     Created At
@@ -217,13 +218,13 @@ const DataSensors = () => {
                                     <td>{formatDate(data.createdAt)}</td>
                                 </>
                             )}
-                            {(selectedField !== 'all' && selectedField !== 'createdAt') && (
+                            {(selectedField !== 'all' && selectedField !== 'createdAt' && selectedField !== 'id') && (
                                 <>
                                     <td>{data[selectedField]}</td>
                                     <td>{formatDate(data.createdAt)}</td>
                                 </>
                             )}
-                            {selectedField === 'createdAt' && (
+                            {(selectedField === 'createdAt' || selectedField === 'id') && (
                                 <>
                                     <td>{formatDate(data.createdAt)}</td>
                                 </>
