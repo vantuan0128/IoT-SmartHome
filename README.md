@@ -98,7 +98,7 @@ A visual representation of a successful MQTT broker startup
 ## Profile page:
 
 <p align="center">
-  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/2419dd80-24f8-4f9b-a201-858b71aaf17d" alt="Profile Image">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/6d961ee0-4e31-4ae8-bfed-69325eb0c829" alt="Profile Image">
 </p>
 
 
