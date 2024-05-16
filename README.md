@@ -80,7 +80,7 @@ A visual representation of a successful MQTT broker startup
 ## DashBoard page:
 
 <p align="center">
-  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/5da6784a-dcac-4b90-aeb6-9bd58e8920c4" alt="Application Image">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/7b6569d2-4595-4052-b094-1189a6bc7b5d" alt="Application Image">
 </p>
 
 ## Data Sensor page:
