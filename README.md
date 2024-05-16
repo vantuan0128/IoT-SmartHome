@@ -86,7 +86,7 @@ A visual representation of a successful MQTT broker startup
 ## Data Sensor page:
 
 <p align="center">
-  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/b53fcdb2-cf40-410f-8974-a85bc4cf2ff8" alt="Data sensor Image">
+  <img src="https://github.com/vantuan0128/IoT-SmartHome/assets/121681379/9db73067-81d7-4c9b-b4a9-9a76f2c7fd6a" alt="Data sensor Image">
 </p>
 
 ## Action history page:
